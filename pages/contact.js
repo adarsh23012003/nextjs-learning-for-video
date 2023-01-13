@@ -7,6 +7,7 @@ export default function contact() {
   const email = Input("");
   const name = Input("");
   const massage = Input("");
+  const phone = Input("");
 
   const send = async function () {
     try {
@@ -15,6 +16,7 @@ export default function contact() {
         email: email.value,
         name: name.value,
         massage: massage.value,
+        phone: phone.value,
       });
       console.log(res.data);
      
@@ -24,31 +26,53 @@ export default function contact() {
   };
 
   const submitForm = async function (event) {
-    //  alert(`Email = ${email.value},name = ${name.value},massage = ${massage.value}`)
     event.preventDefault();
     send();
     name.onSubmit,
     email.onSubmit
     massage.onSubmit;
-    // name = "",
-    // massage = ""
   };
   return (
     <>
       <Head>
         <title>Contact page</title>
       </Head>
-      <div className='text-center font-mono font-bold text-lg m-5'>
-        {" "}
-        Give feedback
-      </div>
       <div>
-        <div className='block p-6 rounded-lg shadow-lg bg-white max-w-sm'>
+        <h1 className='font-bold text-4xl center p-2 '>Contact page</h1>
+        <div className='sm:mx-60 lg:mx-96 md:mx-40'>
           <form>
-            <div className='form-group mb-6'>
+            <div className='text-left'>
+              <label className='form-label inline-block mb-2 text-gray-700'>
+                Enter your name
+              </label>
+              <input
+                onChange={name.onchange}
+                value={name.value}
+                name='name'
+                type='text'
+                className='form-control block
+                focus:ring-2
+              w-full
+              px-3
+              py-1.5
+              text-base
+              font-normal
+              text-gray-700
+              bg-white bg-clip-padding
+              border border-solid border-gray-300
+              rounded
+              transition
+              ease-in-out
+              m-0
+              focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+                placeholder='Enter name'
+              />
+            </div>
+
+            <div className='text-left pb-5'>
               <label
                 htmlFor='exampleInputEmail1'
-                className='form-label inline-block mb-2 text-gray-700'
+                className='form-label inline-block mb-2 mt-4 text-gray-700'
               >
                 Email address
               </label>
@@ -58,7 +82,9 @@ export default function contact() {
                 name='email'
                 type='email'
                 className='form-control
+                text-left
               block
+              focus:ring-2
               w-full
               px-3
               py-1.5
@@ -75,16 +101,23 @@ export default function contact() {
                 placeholder='Enter email'
               />
             </div>
-            <div className='form-group mb-6'>
-              <label className='form-label inline-block mb-2 text-gray-700'>
-                name
+
+            <div className='text-left pb-5'>
+              <label
+                htmlFor='exampleInputEmail1'
+                className='form-label inline-block mb-2 text-gray-700'
+              >
+                phone
               </label>
               <input
-                onChange={name.onchange}
-                value={name.value}
-                name='name'
-                type='text'
-                className='form-control block
+                onChange={phone.onchange}
+                value={phone.value}
+                name='phone'
+                type='phone'
+                className='form-control
+                text-left
+              block
+              focus:ring-2
               w-full
               px-3
               py-1.5
@@ -98,11 +131,11 @@ export default function contact() {
               ease-in-out
               m-0
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-                placeholder='name'
+                placeholder='Enter phone Number'
               />
             </div>
 
-            <div className='form-group mb-6'>
+            <div className='text-left'>
               <label className='form-label inline-block mb-2 text-gray-700'>
                 Massage
               </label>
@@ -114,6 +147,7 @@ export default function contact() {
                 className='form-control block
               w-full
               px-3
+              focus:ring-2
               py-6
               text-base
               font-normal
@@ -123,7 +157,7 @@ export default function contact() {
               rounded
               transition
               ease-in-out
-              m-0
+              m-
               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
                 placeholder='Enter some massage'
               />
@@ -132,23 +166,7 @@ export default function contact() {
             <button
               onClick={submitForm}
               type='submit'
-              className='
-            px-6
-            py-2.5
-            bg-blue-600
-            text-white
-            font-medium
-            text-xs
-            leading-tight
-            uppercase
-            rounded
-            shadow-md
-            hover:bg-blue-700 hover:shadow-lg
-            focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-            active:bg-blue-800 active:shadow-lg
-            transition
-            duration-150
-            ease-in-out'
+              className='bg-black text-white text-xs rounded-md p-1.5 font-normal flex justify-start mt-5'
             >
               Submit
             </button>
